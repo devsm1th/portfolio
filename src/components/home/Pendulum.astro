@@ -1,0 +1,78 @@
+---
+import { Icon } from 'astro-icon/components';
+import { TECHS } from '~/data/techs';
+
+const technologies = Object.values(TECHS);
+---
+
+<section class="container mx-auto mt-16 mb-16">
+  <div class="relative flex justify-center border-8 border-default rounded-lg pb-12 overflow-hidden">
+    {
+      technologies.map((tech) => (
+        <div class="pendulum flex flex-col items-center">
+          <div class="h-[400px] w-0.5 bg-default opacity-20" />
+          <a
+            class="flex items-center justify-center size-16 bg-primary rounded-full group"
+            style={{ backgroundColor: tech.color }}
+            title={tech.name}
+            href={tech.href}
+            target="_blank"
+          >
+            <Icon
+              class="size-6 transition-all group-hover:size-7"
+              name={tech.icon}
+              title={tech.name + ' Icon'}
+              color="white"
+            />
+          </a>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style scoped>
+  .pendulum {
+    --duration: 2s;
+
+    transform-origin: top center;
+  }
+
+  .pendulum:first-child {
+    --easing: cubic-bezier(0.5, 0, 1, 1);
+    animation: pendulum-first var(--duration) var(--easing) alternate infinite;
+  }
+
+  .pendulum:last-child {
+    --easing: cubic-bezier(0, 0, 0.5, 1);
+    animation: pendulum-last var(--duration) var(--easing) alternate infinite;
+  }
+
+  @keyframes pendulum-first {
+    0% {
+      transform: rotate(45deg);
+    }
+
+    52% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
+  @keyframes pendulum-last {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    52% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(-45deg);
+    }
+  }
+</style>

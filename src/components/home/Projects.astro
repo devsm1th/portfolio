@@ -1,0 +1,78 @@
+---
+import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+import { TECHS } from '~/data/techs';
+
+const projects = [
+  {
+    title: 'Pconso',
+    href: 'https://www.pconso.com/',
+    description: `Intelligent Data platform for business transformation
+    
+    Pconso consolidates all your live business data, suggests optimizations based on your data and forecasts future performance`,
+    screenshot: '/projects/pconso.png',
+    techs: [TECHS.nextjs, TECHS.tailwindcss, TECHS.framer_motion, TECHS.strapi],
+  },
+  {
+    title: 'CaratIQ',
+    href: 'https://www.caratiq.com/',
+    description: `The Jewelry Store Business Management Software.
+
+CaratIQ helps you increase revenue, decrease costs, and easily manage your jewelry store operations.`,
+    screenshot: 'https://api.pikwy.com/web/675fe6f120c87a6bb621099c.jpg',
+    techs: [TECHS.nextjs, TECHS.tailwindcss, TECHS.framer_motion, TECHS.strapi],
+  },
+  {
+    title: 'PEV News',
+    href: 'https://pev.news/',
+    description: `PEV News is a website specialized in E-Vehicles news, It's a fullstack project.
+    
+    we handled the frontend with NextJS and the cms was Strapi.`,
+    screenshot: 'https://api.pikwy.com/web/675fee69d5a054770675db21.jpg',
+    techs: [TECHS.nextjs, TECHS.tailwindcss, TECHS.strapi],
+  },
+];
+---
+
+<section class="container mx-auto flex flex-col gap-8 mb-16">
+  <h2 class="text-2xl md:text-3xl font-bold">Projects</h2>
+
+  <div class="flex flex-col gap-8">
+    {
+      projects.map((project) => (
+        <div class="grid grid-cols-1 grid-rows-2 md:grid-rows-1 md:grid-cols-2 gap-4 p-4 md:px-4 md:py-8 rounded-lg border dark:border-white/10">
+          <a href={project.href} target="_blank">
+            <Image
+              class="h-full min-h-[310px] rounded-lg object-cover"
+              src={project.screenshot}
+              alt={project.title + ' Screenshot'}
+              width={1920}
+              height={1080}
+            />
+          </a>
+          <div class="flex flex-col gap-3">
+            <a href={project.href} target="_blank">
+              <h3 class="text-xl md:text-2xl font-bold">{project.title}</h3>
+            </a>
+            <p class="text-muted" set:html={project.description.replaceAll('\n', '<br>')} />
+
+            <div class="mt-auto flex gap-3 flex-wrap">
+              {project.techs.map((tech) => (
+                <a
+                  class="flex gap-1 items-center px-2 py-1 rounded-md text-white text-sm"
+                  style={`background-color: ${tech.color}`}
+                  href={tech.href}
+                  target="_blank"
+                >
+                  <Icon name={tech.icon} size={20} />
+
+                  <span>{tech.name}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

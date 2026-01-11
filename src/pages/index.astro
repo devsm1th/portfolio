@@ -1,0 +1,56 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Pendulum from '~/components/home/Pendulum.astro';
+import Projects from '~/components/home/Projects.astro';
+
+const metadata = {
+  title: 'AstroWind — Free template for creating websites with Astro + Tailwind CSS',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <section class="container mx-auto mt-16">
+    <h1 class="text-7xl lg:text-8xl font-bold font-heading dark:text-gray-200">
+      I'm <a class="text-secondary" href="https://www.aldiwan.net/poem26279.html" target="_blank">Dev Smith</a>
+    </h1>
+
+    <h2 class="text-xl lg:text-2xl text-muted mb-6 dark:text-slate-300">
+      I've been a <a href="https://react.dev/">ReactJS</a> Developer for ~<span class="font-mono" id="seconds_counter"
+        >156,090,565.57</span
+      > seconds
+    </h2>
+  </section>
+
+  <Pendulum />
+
+  <Projects />
+
+  <script>
+    const seconds_counter = document.querySelector('#seconds_counter')!;
+
+    const format_time = (time: number) => {
+      const [seconds, millies] = time.toFixed(2).split('.');
+
+      const formated_seconds = seconds.replace(/\d{3}/g, (substr) => substr + ',').slice(0, -1);
+
+      return `${formated_seconds}.${millies}`;
+    };
+
+    const update_seconds = () => {
+      const since = new Date('1-1-2020');
+
+      const seconds = (Date.now() - since.getTime()) / 1000;
+
+      seconds_counter.textContent = format_time(seconds);
+
+      requestAnimationFrame(update_seconds);
+    };
+
+    requestAnimationFrame(update_seconds);
+
+    update_seconds();
+  </script>
+</Layout>
