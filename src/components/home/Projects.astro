@@ -3,6 +3,10 @@ import { Icon } from 'astro-icon/components';
 import { Image } from 'astro:assets';
 import { TECHS } from '~/data/techs';
 
+import screenshot1 from '~/assets/images/projects/pconso.png';
+import screenshot2 from '~/assets/images/projects/caratiq.png';
+import screenshot3 from '~/assets/images/projects/pev.png';
+
 const projects = [
   {
     title: 'Pconso',
@@ -10,7 +14,7 @@ const projects = [
     description: `Intelligent Data platform for business transformation
     
     Pconso consolidates all your live business data, suggests optimizations based on your data and forecasts future performance`,
-    screenshot: '/projects/pconso.png',
+    screenshot: screenshot1,
     techs: [TECHS.nextjs, TECHS.tailwindcss, TECHS.framer_motion, TECHS.strapi],
   },
   {
@@ -19,7 +23,7 @@ const projects = [
     description: `The Jewelry Store Business Management Software.
 
 CaratIQ helps you increase revenue, decrease costs, and easily manage your jewelry store operations.`,
-    screenshot: '/projects/caratiq.png',
+    screenshot: screenshot2,
     techs: [TECHS.nextjs, TECHS.tailwindcss, TECHS.framer_motion, TECHS.strapi],
   },
   {
@@ -28,7 +32,7 @@ CaratIQ helps you increase revenue, decrease costs, and easily manage your jewel
     description: `PEV News is a website specialized in E-Vehicles news, It's a fullstack project.
     
     we handled the frontend with NextJS and the cms was Strapi.`,
-    screenshot: '/projects/pev.png',
+    screenshot: screenshot3,
     techs: [TECHS.nextjs, TECHS.tailwindcss, TECHS.strapi],
   },
 ];
