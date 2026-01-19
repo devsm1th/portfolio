@@ -117,11 +117,17 @@ export const headerData = {
     // },
   ],
   actions: [
+    // {
+    //   text: 'Download CV',
+    //   download: `${SITE.name}'s CV`,
+    //   href: '/resume.pdf',
+    //   icon: 'tabler:file-cv',
+    //   dir: 'rtl',
+    // },
     {
-      text: 'Download CV',
-      download: `${SITE.name}'s CV`,
-      href: '/resume.pdf',
-      icon: 'tabler:file-cv',
+      text: 'Contact Me',
+      href: '/contact',
+      icon: 'tabler:phone',
       dir: 'rtl',
     },
   ] satisfies CallToAction[],
@@ -129,10 +135,10 @@ export const headerData = {
 
 export const footerData = {
   socialLinks: [
-    { ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },
-    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
-    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
-    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/onwidget/astrowind' },
+    { ariaLabel: 'X', icon: 'tabler:brand-x', href: 'https://x.com/devsm1th' },
+    // { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
+    // { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
+    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: `https://github.com/${SITE.author.username}` },
   ],
   footNote: `
   <div class="flex items-center gap-2">

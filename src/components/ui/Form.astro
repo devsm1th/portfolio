@@ -5,19 +5,21 @@ import Button from '~/components/ui/Button.astro';
 const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } = Astro.props;
 ---
 
-<form>
+<form action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value="a4b839f5-c1bf-402e-aa94-45e3f6a21ab8" />
   {
     inputs &&
       inputs.map(
         ({ type = 'text', name, label = '', autocomplete = 'on', placeholder = '' }) =>
           name && (
-            <div class="mb-6">
+            <div class="mb-6 flex flex-col gap-1">
               {label && (
                 <label for={name} class="block text-sm font-medium">
                   {label}
                 </label>
               )}
               <input
+                required
                 type={type}
                 name={name}
                 id={name}
@@ -32,11 +34,12 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
 
   {
     textarea && (
-      <div>
+      <div class="flex flex-col gap-1">
         <label for="textarea" class="block text-sm font-medium">
           {textarea.label}
         </label>
         <textarea
+          required
           id="textarea"
           name={textarea.name ? textarea.name : 'message'}
           rows={textarea.rows ? textarea.rows : 4}
