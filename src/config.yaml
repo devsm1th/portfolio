@@ -1,6 +1,6 @@
 site:
   name: Dev Smith
-  site: 'https://astrowind.vercel.app'
+  site: 'https://devsm1th.github.io/'
   base: '/'
   trailingSlash: false
   author:
@@ -21,8 +21,8 @@ metadata:
     site_name: Dev Smith's portfolio
     images:
       - url: '~/assets/images/default.png'
-        width: 1920
-        height: 1200
+        width: 1919
+        height: 1199
     type: website
   twitter:
     handle: '@onwidget'
